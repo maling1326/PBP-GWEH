@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran Responsif</title>
+    <!-- Link untuk font inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body, input, textarea, button {
+            font-family: 'Inter', sans-serif;
+            color: white;
+        }
+        
+        @layer base {  
+            input::placeholder, textarea::placeholder {
+                color: #9ca3af; /* gray-400 */
+                font-size: small;
+            }
+        }
+        
+        /* Hide spinner arrows in Chrome, Safari, and Edge */
+        input[type=number]::-webkit-outer-spin-button,
+        input[type=number]::-webkit-inner-spin-button,
+        textarea::-webkit-inner-spin-button,
+        textarea::-webkit-outer-spin-button{
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Hide spinner arrows in Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+<body class="relative bg-black z-0 min-h-screen text-gray-300 before:absolute before:inset-0 before:z-[-1] before:bg-[url('ado.png')] before:bg-cover before:bg-left before:opacity-35">
+    
+    <form id="forms" class="py-8 relative w-full md:max-w-2xl lg:max-w-4xl mx-auto px-4">
+        <div class="p-6 lg:p-10 rounded-3xl bg-gray-800/70 shadow-lg shadow-sky-600/50 border border-gray-700">
+            <h1 class="text-center font-bold text-3xl lg:text-4xl pb-10 lg:pb-12 text-white">Daftar Anggota Timpa Teks</h1>
+            
+            <!-- Menggunakan layout 1 kolom dengan jarak antar seksi -->
+            <div class="space-y-12">
+
+                <!-- Seksi 1: Info Dasar -->
+                <div id="seksi_1" class="space-y-6 border-t border-gray-600 pt-8 relative">
+                    <h2 class="text-xl lg:text-2xl font-semibold -mt-12 lg:-mt-13 px-3 w-auto bg-gray-800 absolute text-white">Info Dasar</h2>
+                    
+                    <div>
+                        <label for="fullname" class="block mb-2 text-base lg:text-lg">Nama Lengkap</label>
+                        <input id="fullname" type="text" placeholder="Kim Jong-un" class="border border-gray-600 rounded-md pl-3 w-full bg-gray-900/50 focus:ring-2 focus:ring-sky-500 focus:border-transparent h-10 lg:h-12 text-base lg:text-lg" required>
+                    </div>
+                    
+                    <div>
+                        <label for="username" class="block mb-2 text-base lg:text-lg">Nama Panggilan</label>
+                        <input id="username" type="text" placeholder="Kim" class="border border-gray-600 rounded-md pl-3 w-full bg-gray-900/50 focus:ring-2 focus:ring-sky-500 focus:border-transparent h-10 lg:h-12 text-base lg:text-lg" required>
+                    </div>
+
+                    <div>
+                        <label for="telp" class="block mb-2 text-base lg:text-lg">Nomor Telepon</label>
+                        <input id="telp" type="tel" required pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}" placeholder="0811-1704-2207" class="border border-gray-600 rounded-md pl-3 w-full bg-gray-900/50 focus:ring-2 focus:ring-sky-500 focus:border-transparent h-10 lg:h-12 text-base lg:text-lg" required>
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block mb-2 text-base lg:text-lg">Akun <i>Email</i></label>
+                        <input id="email" type="email" placeholder="kju4live@gmail.com" class="border border-gray-600 rounded-md pl-3 w-full bg-gray-900/50 focus:ring-2 focus:ring-sky-500 focus:border-transparent h-10 lg:h-12 text-base lg:text-lg" required>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+                        <div>
+                            <label class="block mb-2 text-base lg:text-lg">Status Kelamin</label>
+                            <div class="flex space-x-6">
+                                <div class="flex items-center">
+                                    <input type="radio" id="men" name="sex" value="men" checked class="h-4 w-4 lg:h-5 lg:w-5" required>
+                                    <label for="men" class="ml-2 text-base lg:text-lg">Pria</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="radio" id="women" name="sex" value="women" class="h-4 w-4 lg:h-5 lg:w-5" required>
+                                    <label for="women" class="ml-2 text-base lg:text-lg">Wanita</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="status_nikah" class="block mb-2 text-base lg:text-lg">Status Pernikahan</label>
+                            <select id="status_nikah" class="border border-gray-600 rounded-md pl-2 pr-4 w-full bg-gray-900/50 focus:ring-2 focus:ring-sky-500 focus:border-transparent h-10 lg:h-12 text-base lg:text-lg"  required>
+                                <option value="jomblo" class="bg-gray-800">Belum Menikah</option>
+                                <option value="menikah" class="bg-gray-800">Sudah Menikah</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Seksi 2: Perangkat & Kemampuan -->
+                <div id="seksi_2" class="space-y-6 hidden border-t border-gray-600 pt-8 relative" >
+                    <h2 class="text-xl lg:text-2xl font-semibold -mt-12 lg:-mt-13 px-3 w-auto bg-gray-800 absolute text-white">Perangkat & Kemampuan</h2>
+
+                    <div>
+                        <label for="wpm" class="block mb-2 text-base lg:text-lg">Word Per Minute (<b>WPM</b>)</label>
+                        <input id="wpm" type="number" placeholder="120" class="border border-gray-600 rounded-md pl-3 w-full bg-gray-900/50 focus:ring-2 focus:ring-sky-500 focus:border-transparent h-10 lg:h-12 text-base lg:text-lg" required>
+                    </div>
+                    
+                    <div>
+                        <label for="software" class="block mb-2 text-base lg:text-lg">Aplikasi Pendukung</label>
+                        <input id="software" type="text" placeholder="Contoh: Aegisub, VSCode" class="border border-gray-600 rounded-md pl-3 w-full bg-gray-900/50 focus:ring-2 focus:ring-sky-500 focus:border-transparent h-10 lg:h-12 text-base lg:text-lg" required>
+                    </div>
+                    
+                    <div>
+                        <label class="block mb-2 text-base lg:text-lg">Perangkat Utama</label>
+                        <div class="flex flex-wrap gap-x-6 gap-y-2">
+                            <div class="flex items-center">
+                                <input type="radio" id="hp" name="hardware" value="hp" class="h-4 w-4 lg:h-5 lg:w-5" checked>
+                                <label for="hp" class="ml-2 text-base lg:text-lg">HP</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="radio" id="pc_laptop" name="hardware" value="pc_laptop" class="h-4 w-4 lg:h-5 lg:w-5">
+                                <label for="pc_laptop" class="ml-2 text-base lg:text-lg">PC / Laptop</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="radio" id="kulkas" name="hardware" value="kulkas" class="h-4 w-4 lg:h-5 lg:w-5">
+                                <label for="kulkas" class="ml-2 text-base lg:text-lg">Kulkas</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="radio" id="other" name="hardware" value="other" class="h-4 w-4 lg:h-5 lg:w-5">
+                                <label for="other" class="ml-2 text-base lg:text-lg">other</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="text" id="hardware_other_text" name="hardware_other" placeholder="Input yang lainnya" class="border hidden border-gray-600 rounded-md pl-3 w-full bg-gray-900/50 focus:ring-2 focus:ring-sky-500 focus:border-transparent h-7 text-base lg:text-lg" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seksi 3: Pengalaman & Pemahaman -->
+                <div id="seksi_3" class="space-y-6 hidden border-t border-gray-600 pt-8 relative">
+                    <h2 class="text-xl lg:text-2xl font-semibold -mt-12 lg:-mt-13 px-3 w-auto bg-gray-800 absolute text-white">Pengalaman & Pemahaman</h2>
+
+                    <div>
+                        <label for="pengalaman_war" class="block mb-2 text-base lg:text-lg">Pengalaman "<b>war</b>"</label>
+                        <textarea id="pengalaman_war" placeholder="Ceritakan pengalamanmu..." class="border border-gray-600 rounded-md p-2 w-full bg-gray-900/50 focus:ring-2 focus:ring-sky-500 focus:border-transparent h-24 lg:h-28 resize-none text-base lg:text-lg"  required></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block mb-2 text-base lg:text-lg">Pemahaman Istilah</label>
+                        <div class="flex flex-wrap gap-x-6 gap-y-2">
+                            <div class="flex items-center">
+                                <input type="checkbox" id="kopdar" name="istilah" value="kopdar" class="h-4 w-4 lg:h-5 lg:w-5">
+                                <label for="kopdar" class="ml-2 text-base lg:text-lg">KopDar</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="RekBer" name="istilah" value="RekBer" class="h-4 w-4 lg:h-5 lg:w-5">
+                                <label for="RekBer" class="ml-2 text-base lg:text-lg">RekBer</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="wtb" name="istilah" value="wtb" class="h-4 w-4 lg:h-5 lg:w-5">
+                                <label for="wtb" class="ml-2 text-base lg:text-lg">WTB</label>
+                            </div>
+                             <div class="flex items-center">
+                                <input type="checkbox" id="jb" name="istilah" value="jb" class="h-4 w-4 lg:h-5 lg:w-5">
+                                <label for="jb" class="ml-2 text-base lg:text-lg">JB</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Seksi 4: Pernyataan Akhir -->
+                <div id="seksi_4" class="space-y-6 hidden border-t border-gray-600 pt-8 relative">
+                     <h2 class="text-xl lg:text-2xl font-semibold -mt-12 lg:-mt-13 px-3 w-auto bg-gray-800 absolute text-white">Pernyataan Akhir</h2>
+                    
+                    <div>
+                        <label for="promise" class="block mb-2 text-base lg:text-lg">Janji Setia</label>
+                        <input id="promise" type="text" value="Saya berjanji tidak akan menghianati atau menyakiti anggota komunitas ini." readonly class="border border-gray-600 rounded-md pl-3 w-full bg-gray-900/50 h-10 lg:h-12 text-base lg:text-lg cursor-default">
+                    </div>
+                    
+                    <div>
+                        <label for="klarif-upload" class="block mb-2 text-base lg:text-lg">Unggah Teks Klarifikasi</label>
+                        <input id="klarif-upload" type="file" accept=".pdf" 
+                               class="block w-full text-sm lg:text-base text-gray-400 cursor-pointer
+                                      file:mr-4 file:py-2 file:px-4
+                                      file:rounded-lg file:border-0
+                                      file:text-sm file:font-semibold
+                                      file:bg-sky-700 file:text-sky-100
+                                      hover:file:bg-sky-600" required>
+                        <p class="mt-1 text-xs lg:text-sm text-gray-400">Hanya file .PDF yang diterima.</p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Tombol Navigasi -->
+            <div class="flex justify-around mt-10">
+                <button id="btnbefore" type="button" class = "border border-yellow-600 rounded-sm text-white bg-yellow-500/80 p-1.5 px-5 cursor-pointer font-bold">Before</button>
+                <button id="btnafter"  type="button" class = "border border-blue-600   rounded-sm text-white bg-blue-500/80   p-1.5 px-5 cursor-pointer font-bold">Next</button>
+                <button id="btnsubmit" type="submit" class = "border border-green-600  rounded-sm text-white bg-green-500/80  p-1.5 px-5 cursor-pointer font-bold hidden">Submit</button>
+            </div>
+        </div>
+    </form>
+    
+    <div class="flex justify-center items-center h-screen hidden" id="kalonimpa">
+        <img src="kalonimpadipikirmas.jpg" alt="Gambar placeholder setelah submit">
+    </div>
+    
+    <script>
+        const hardwareRadios = document.querySelectorAll('input[name="hardware"]');
+        const otherTextInput = document.getElementById('hardware_other_text');
+        const before         = document.getElementById('btnbefore');
+        const after          = document.getElementById('btnafter');
+        const submitBtn      = document.getElementById('btnsubmit'); // Ganti nama variabel agar tidak bentrok
+        const seksi_1        = document.getElementById('seksi_1');
+        const seksi_2        = document.getElementById('seksi_2');
+        const seksi_3        = document.getElementById('seksi_3');
+        const seksi_4        = document.getElementById('seksi_4');
+        const forms          = document.getElementById('forms');
+        const kalonimpa      = document.getElementById('kalonimpa');
+        
+        var page = 1;
+        
+        // Untuk 'others' pada bagian 2
+        hardwareRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (document.getElementById('other').checked) {
+                    otherTextInput.classList.remove('hidden');
+                    otherTextInput.setAttribute('required', ''); // Menambahkan validasi jika 'other' dipilih
+                } else {
+                    otherTextInput.classList.add('hidden');
+                    otherTextInput.removeAttribute('required'); // Menghapus validasi jika tidak dipilih
+                }
+            });
+        });
+        
+        // Untuk Tombol "sebelumnya"
+        before.addEventListener('click', function() {
+            if (page == 2) {
+                seksi_1.classList.remove('hidden');
+                seksi_2.classList.add('hidden');
+                page--;
+            } else if (page == 3) {
+                seksi_2.classList.remove('hidden');
+                seksi_3.classList.add('hidden');
+                page--;
+            } else if (page == 4) {
+                seksi_3.classList.remove('hidden');
+                seksi_4.classList.add('hidden');
+                after.classList.remove('hidden');
+                submitBtn.classList.add('hidden');
+                page--;
+            }
+        });
+        
+        // Untuk Tombol "setelahnya"
+        after.addEventListener('click', function() {
+            if (page == 1) {
+                seksi_1.classList.add('hidden');
+                seksi_2.classList.remove('hidden');
+                page++;
+            } else if (page == 2) {
+                seksi_2.classList.add('hidden');
+                seksi_3.classList.remove('hidden');
+                page++;
+            } else if (page == 3) {
+                seksi_3.classList.add('hidden');
+                seksi_4.classList.remove('hidden');
+                after.classList.add('hidden');
+                submitBtn.classList.remove('hidden');
+                page++;
+            }
+        });
+        
+        // Untuk form "submit", bukan tombolnya
+        forms.addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            console.log('Form terkirim');
+            forms.classList.add('hidden');
+            kalonimpa.classList.remove('hidden');
+            forms.reset();
+        });
+        
+    </script>
+</body>
+</html>
